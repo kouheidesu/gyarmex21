@@ -16,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+
+    Route::apiResource('/v1/rest', RestController::class);
+
 });
+
+Route::get('/hello', function () {
+    return response()->json([
+        'message' => 'Hello'
+    ], 200);
+});
+
